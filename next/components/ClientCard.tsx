@@ -7,10 +7,14 @@ interface CardProps {
 }
 
 export const ClientCard = (props: CardProps) => {
-  const client = useGetClient(props._id);
+  const { loading, client } = useGetClient(props._id);
+
+  if (loading) {
+    return <div className="card-container">Loading...</div>;
+  }
 
   if (!client) {
-    return <h1>Error: Client ID not found</h1>;
+    return <div className="card-container">Error: Client ID not found</div>;
   }
 
   return (
