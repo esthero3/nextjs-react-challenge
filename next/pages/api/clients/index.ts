@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Client } from "./types/Client";
-import { clientsData } from "./data/clientsData";
+import { Client } from "../types/Client";
+import { clientsData } from "../data/clientsData";
 
 export default function handler(
   req: NextApiRequest,
