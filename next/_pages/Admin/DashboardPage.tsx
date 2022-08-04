@@ -1,6 +1,7 @@
 import React from "react";
 import { ClientCard } from "../../components/ClientCard";
 import { useGetClients } from "./hooks/useGetClients";
+import { ClientsContext } from "./contexts/ClientsContext";
 
 export const DashboardPage = () => {
   const { clients, loading } = useGetClients(); //gets the clients and the loading status from custom hook that fetchs data
@@ -15,9 +16,11 @@ export const DashboardPage = () => {
 
   return (
     <>
+      <ClientsContext.Provider value={{ clients: clients }}>
         {clients.map((client) => {
           return <ClientCard _id={client._id} />;
         })}
+      </ClientsContext.Provider>
     </>
   );
 };
