@@ -7,6 +7,7 @@ export const useGetClients = () => {
 
   const fetchClients = async () => {
     try {
+      console.log("fetching all clients data");
       const rawData = await fetch("/api/clients");
       const data = await rawData.json();
       setClients(data);
@@ -21,5 +22,5 @@ export const useGetClients = () => {
     fetchClients();
   }, []);
 
-  return { clients, loading };
+  return { clients, setClients, loading, fetchClients };
 };

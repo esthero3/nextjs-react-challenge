@@ -1,14 +1,11 @@
 import React from "react";
 import { ClientCard } from "../../components/ClientCard";
 import { useGetClients } from "./hooks/useGetClients";
+import { useContext } from "react";
 import { ClientsContext } from "./contexts/ClientsContext";
 
 export const DashboardPage = () => {
-  const { clients, loading } = useGetClients(); //gets the clients and the loading status from custom hook that fetchs data
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const clients = useContext(ClientsContext)?.clients;
 
   if (!clients) {
     return <div>Error, could not load clients</div>;
@@ -16,11 +13,9 @@ export const DashboardPage = () => {
 
   return (
     <>
-      <ClientsContext.Provider value={{ clients: clients }}>
-        {clients.map((client) => {
-          return <ClientCard _id={client._id} />;
-        })}
-      </ClientsContext.Provider>
+      {clients.map((client) => {
+        return <ClientCard _id={client._id} key={client._id} />;
+      })}
     </>
   );
 };

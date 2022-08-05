@@ -31,5 +31,5 @@ export const useGetClient = (_id: string) => {
     }
   }, []);
 
-  return { loading, client };
+  return { loading, client, fetchClient };
 };
