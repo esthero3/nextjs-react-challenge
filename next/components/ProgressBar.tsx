@@ -8,9 +8,9 @@ interface ProgressProps {
 
 export const ProgressBar = (props: ProgressProps) => {
   const style: CircularProgressbarStyles = buildStyles({
-    textColor: "#388087",
-    pathColor: "#DEAB39",
-    trailColor: "#EDDAAB",
+    textColor: "#00424A",
+    pathColor: "#016370",
+    trailColor: "#66A5AD",
     strokeLinecap: "butt",
     textSize: "23px",
     pathTransitionDuration: 1,
@@ -19,8 +19,10 @@ export const ProgressBar = (props: ProgressProps) => {
   return (
     <>
       <CircularProgressbar
+        className="w-6/12 my-5 flex justify-center"
         value={props.progress}
         text={`${props.progress}%`}
+        strokeWidth={8}
         styles={style}
       />
     </>

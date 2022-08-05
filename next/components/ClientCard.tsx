@@ -20,11 +20,11 @@ export const ClientCard = (props: CardProps) => {
   return (
     <div className="card-container">
       <ProgressBar progress={client.progress} />
-      <h2>
+      <h2 className="text-primary font-bold text-2xl p-2 drop-shadow-md">
         {client.firstName} {client.lastName}
       </h2>
-      <h2>Due date: {client.meetingDate}</h2>
-      <h2>T1 Checklist</h2>
+      <h2 className="text-primary font-bold text-2xl p-2 drop-shadow-md">Due date: {client.meetingDate}</h2>
+      <h2 className="text-primary font-bold text-2xl p-2 drop-shadow-md">T1 Checklist</h2>
     </div>
   );
 };
