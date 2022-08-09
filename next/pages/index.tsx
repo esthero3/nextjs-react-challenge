@@ -52,7 +52,7 @@ const Home: NextPage = () => {
             </p>
           </a>
         </div>
-        <ClientCard _id="3" />
+        <ClientCard _id="2" />
       </main>
 
       <footer className={styles.footer}>

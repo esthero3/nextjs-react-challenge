@@ -1,14 +1,14 @@
 import React from "react";
-import { ClientsContext } from "./Admin/contexts/ClientsContext";
-import { useGetClients } from "./Admin/hooks/useGetClients";
-import { getStaticProps } from "./Admin/hooks/useGetStaticProps";
+import { ClientsContext } from "../_pages/Admin/contexts/ClientsContext";
+import { useGetClients } from "../_pages/Admin/hooks/useGetClients";
 
 type pageProps = {
   children: React.ReactNode; //allows you to nest other components inside this(AppPage)
 };
 
-function AppPage(props: pageProps) {
+function AdminLayout(props: pageProps) {
   const { clients, setClients, loading, fetchClients } = useGetClients(); //gets the clients and the loading status from custom hook that fetchs data
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -30,4 +30,4 @@ function AppPage(props: pageProps) {
   );
 }
 
-export default AppPage;
+export default AdminLayout;

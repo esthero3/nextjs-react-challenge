@@ -7,8 +7,11 @@ export default function Navbar() {
         <Link href="/">
           <a className="m-2 hover:underline">Home</a>
         </Link>
-        <Link href="/dashboard">
+        <Link href="/admin/dashboard">
           <a className="m-2 hover:underline">Dashboard</a>
+        </Link>
+        <Link href="/admin/randomPage">
+          <a className="m-2 hover:underline">Random Page 1</a>
         </Link>
       </div>
     </div>

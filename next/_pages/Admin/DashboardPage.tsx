@@ -1,6 +1,5 @@
 import React from "react";
 import { ClientCard } from "../../components/ClientCard";
-import { useGetClients } from "./hooks/useGetClients";
 import { useContext } from "react";
 import { ClientsContext } from "./contexts/ClientsContext";
 
