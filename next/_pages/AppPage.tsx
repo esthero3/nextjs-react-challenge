@@ -1,33 +1,22 @@
 import React from "react";
 import { ClientsContext } from "./Admin/contexts/ClientsContext";
 import { useGetClients } from "./Admin/hooks/useGetClients";
-import { getStaticProps } from "./Admin/hooks/useGetStaticProps";
+import { useRouter } from "next/router";
+import { AdminLayout } from "../layouts/AdminLayout";
+//import {ClientLayout} from "../layouts/ClientLayout"
 
 type pageProps = {
   children: React.ReactNode; //allows you to nest other components inside this(AppPage)
 };
 
 function AppPage(props: pageProps) {
-  const { clients, setClients, loading, fetchClients } = useGetClients(); //gets the clients and the loading status from custom hook that fetchs data
-  if (loading) {
-    return <div>Loading...</div>;
+  const { pathname } = useRouter(); //pathname can be used to selectively set the context
+
+  if (pathname.startsWith("/admin")) {
+    return <AdminLayout>{props.children}</AdminLayout>;
   }
 
-  if (!clients) {
-    return <div>Error, could not load clients</div>;
-  }
-
-  return (
-    <ClientsContext.Provider //the context for the clients
-      value={{
-        clients: clients,
-        refetchClients: fetchClients,
-        setClients: setClients,
-      }}
-    >
-      {props.children}
-    </ClientsContext.Provider>
-  );
+  return <>{props.children}</>;
 }
 
 export default AppPage;

@@ -6,7 +6,7 @@ type pageProps = {
   children: React.ReactNode; //allows you to nest other components inside this(AppPage)
 };
 
-function AdminLayout(props: pageProps) {
+export const AdminLayout = (props: pageProps) => {
   const { clients, setClients, loading, fetchClients } = useGetClients(); //gets the clients and the loading status from custom hook that fetchs data
 
   if (loading) {
@@ -28,6 +28,4 @@ function AdminLayout(props: pageProps) {
       {props.children}
     </ClientsContext.Provider>
   );
-}
-
-export default AdminLayout;
+};
