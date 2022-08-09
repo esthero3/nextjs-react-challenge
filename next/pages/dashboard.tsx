@@ -4,31 +4,22 @@ import { GetStaticProps, NextPage } from "next";
 import { ClientsContext } from "../_pages/Admin/contexts/ClientsContext";
 import { DashboardPage } from "../_pages/Admin/DashboardPage";
 import { Client } from "./api/types/Client";
-import AdminLayout from "../Layouts/AdminLayout";
 
 interface Props {
-  //clients: Client[];
+  clients: Client[];
   children: React.ReactNode; //allows you to nest other components inside this(AppPage)
 }
 
-// export const Dashboard: NextPage<Props> = ({ clients }) => {
-//   return (
-//     <>
-//       <ClientsContext.Provider //the context for the clients
-//         value={{
-//           clients: clients,
-//         }}
-//       >
-//         <DashboardPage />
-//       </ClientsContext.Provider>
-//     </>
-//   );
-// };
-
-export const Dashboard = (props: Props) => {
+export const Dashboard: NextPage<Props> = ({ clients }) => {
   return (
     <>
-      <AdminLayout></AdminLayout>
+      <ClientsContext.Provider //the context for the clients
+        value={{
+          clients: clients,
+        }}
+      >
+        <DashboardPage />
+      </ClientsContext.Provider>
     </>
   );
 };
