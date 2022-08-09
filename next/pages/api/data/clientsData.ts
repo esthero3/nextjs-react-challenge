@@ -9,7 +9,7 @@ export const clientsData: Client[] = [
     meetingDate: "Aug 25th, 2022",
     phoneNumber: { cell: "872477751" },
     progress: 55,
-    _id: "62e2c102a45ab78dc565b27c",
+    _id: "1",
   },
   {
     documentRef: "62e2c088074ae1c859d86c42",
@@ -19,7 +19,7 @@ export const clientsData: Client[] = [
     meetingDate: "Aug 28th, 2022",
     phoneNumber: { cell: "182422751" },
     progress: 50,
-    _id: "62e2c102a45ab78dc565b21f",
+    _id: "2",
   },
   {
     documentRef: "62e2c088074ae1c859d86c42",
@@ -29,7 +29,7 @@ export const clientsData: Client[] = [
     meetingDate: "Aug 12th, 2022",
     phoneNumber: { cell: "8123477751" },
     progress: 66,
-    _id: "62e2c102a45ab78dc565b211",
+    _id: "3",
   },
   {
     documentRef: "62e2c088074ae1c859d86c42",
@@ -39,6 +39,6 @@ export const clientsData: Client[] = [
     meetingDate: "Aug 30th, 2022",
     phoneNumber: { cell: "116477751" },
     progress: 22,
-    _id: "6211c102a45ab78dc565b27c",
+    _id: "4",
   },
 ];
