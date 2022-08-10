@@ -1,10 +1,10 @@
 import React from "react";
 import { ClientCard } from "../../components/ClientCard";
 import { useContext } from "react";
-import { ClientsContext } from "./contexts/ClientsContext";
+import { useClientsContext } from "../../contexts/ClientsContext";
 
 export const DashboardPage = () => {
-  const clients = useContext(ClientsContext)?.clients;
+  const clients = useClientsContext()?.clients;
 
   if (!clients) {
     return <div>Error, could not load clients</div>;
