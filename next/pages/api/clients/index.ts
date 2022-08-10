@@ -6,5 +6,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Client[]>
 ) {
+  console.log("sending all clients data");
   res.status(200).json(clientsData);
 }

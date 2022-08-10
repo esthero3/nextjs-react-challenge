@@ -1,15 +1,15 @@
 import React from "react";
+import { Client } from "../../pages/api/types/Client";
 import { ClientCard } from "../../components/ClientCard";
-import { useGetClients } from "./hooks/useGetClients";
-import { useContext } from "react";
-import { ClientsContext } from "./contexts/ClientsContext";
+import { useGetClientsSWR } from "./hooks/useGetClients";
+
+import useSWR, { Key, Fetcher } from "swr";
 
 export const DashboardPage = () => {
-  const clients = useContext(ClientsContext)?.clients;
+  const { clients, error } = useGetClientsSWR();
 
-  if (!clients) {
-    return <div>Error, could not load clients</div>;
-  }
+  if (error) return <div>Failed to get Clients</div>;
+  if (!clients) return <div>Loading...</div>;
 
   return (
     <>

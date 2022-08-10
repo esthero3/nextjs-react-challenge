@@ -6,6 +6,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Client | undefined>
 ) {
+  console.log("sending data for single client");
   const { clientId } = req.query;
   const client = clientsData.find((client: Client) => client._id === clientId);
 

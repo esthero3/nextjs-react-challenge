@@ -1,26 +1,16 @@
 import { useEffect, useState } from "react";
 import { Client } from "../../../pages/api/types/Client";
+import useSWR, { Key, Fetcher } from "swr";
 
-export const useGetClients = () => {
-  const [clients, setClients] = useState<Client[] | undefined>();
-  const [loading, setLoading] = useState<Boolean>(false);
+export const useGetClientsSWR = () => {
+  const fetcher = async (url: string) => {
+    const rawData = await fetch(url);
+    const data = await rawData.json();
 
-  const fetchClients = async () => {
-    try {
-      console.log("fetching all clients data");
-      const rawData = await fetch("/api/clients");
-      const data = await rawData.json();
-      setClients(data);
-      setLoading(false);
-    } catch (e) {
-      console.log("failed to fetch clients", e);
-    }
+    return data;
   };
 
-  useEffect(() => {
-    setLoading(true);
-    fetchClients();
-  }, []);
+  const { data: clients, error } = useSWR<Client[]>(`/api/clients`, fetcher);
 
-  return { clients, setClients, loading, fetchClients };
+  return { clients, error };
 };

@@ -8,7 +8,7 @@ export const clientsData: Client[] = [
     lastName: "Sherwood",
     meetingDate: "Aug 25th, 2022",
     phoneNumber: { cell: "872477751" },
-    progress: 55,
+    progress: 59,
     _id: "1",
   },
   {
@@ -38,7 +38,7 @@ export const clientsData: Client[] = [
     lastName: "Sherwood",
     meetingDate: "Aug 30th, 2022",
     phoneNumber: { cell: "116477751" },
-    progress: 22,
+    progress: 30,
     _id: "4",
   },
 ];
