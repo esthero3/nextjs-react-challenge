@@ -7,6 +7,7 @@ interface CardProps {
 }
 
 export const ClientCard = (props: CardProps) => {
+  // console.log(props._id);
   const { client, error } = useGetClientSWR(props._id);
 
   if (!client) {

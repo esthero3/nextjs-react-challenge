@@ -10,6 +10,15 @@ export default function Navbar() {
         <Link href="/dashboard">
           <a className="m-2 hover:underline">Dashboard</a>
         </Link>
+        <Link href="/client/1">
+          <a className="m-2 hover:underline">client 1</a>
+        </Link>
+        <Link href="/client/1/page1">
+          <a className="m-2 hover:underline">client 1_a</a>
+        </Link>
+        <Link href="/client/1/page2">
+          <a className="m-2 hover:underline">client 1_b</a>
+        </Link>
       </div>
     </div>
   );
