@@ -29,7 +29,7 @@ export const useGetClient = (_id: string) => {
     } else {
       setClient(clients.find((client) => client._id === _id));
     }
-  });
+  }, [_id]);
 
   return { loading, client, fetchClient };
 };
