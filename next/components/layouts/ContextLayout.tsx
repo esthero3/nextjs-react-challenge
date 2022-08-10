@@ -1,12 +1,10 @@
 import React from "react";
-import { ClientsContext } from "./Admin/contexts/ClientsContext";
-import { useGetClients } from "./Admin/hooks/useGetClients";
 import { useRouter } from "next/router";
-import { AdminLayout } from "../layouts/AdminLayout";
-//import {ClientLayout} from "../layouts/ClientLayout"
+import { AdminLayout } from "./AdminLayout";
+import { ClientLayout } from "./ClientLayout";
 
 type pageProps = {
-  children: React.ReactNode; //allows you to nest other components inside this(AppPage)
+  children: React.ReactNode; //allows you to nest other components inside this component(AppPage)
 };
 
 function AppPage(props: pageProps) {
@@ -14,6 +12,10 @@ function AppPage(props: pageProps) {
 
   if (pathname.startsWith("/admin")) {
     return <AdminLayout>{props.children}</AdminLayout>;
+  }
+
+  if (pathname.startsWith("/client/")) {
+    return <ClientLayout>{props.children}</ClientLayout>;
   }
 
   return <>{props.children}</>;
