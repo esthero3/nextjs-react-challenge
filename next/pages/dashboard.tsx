@@ -25,6 +25,7 @@ export const Dashboard: NextPage<Props> = ({ clients }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  console.log("fetching...");
   const rawData = await fetch(`${server}/api/clients`);
   const clients = await rawData.json();
 
