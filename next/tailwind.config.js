@@ -7,10 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#016370',
-        secondary: '#66A5AD',
+        primary: "#016370",
+        secondary: "#66A5AD",
       },
     },
   },
   plugins: [],
-}
+};

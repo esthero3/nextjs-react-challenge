@@ -1,10 +1,6 @@
-import { ClientCard } from "../../components/ClientCard";
+import React from "react";
+import { RandomPage } from "../../_pages/Admin/RandomPage";
 
 export default function () {
-  return (
-    <>
-      <h1>Random Page</h1>
-      <ClientCard _id="3" />
-    </>
-  );
+  return <RandomPage />;
 }

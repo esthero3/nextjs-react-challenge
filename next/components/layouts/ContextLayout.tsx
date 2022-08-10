@@ -7,7 +7,7 @@ type pageProps = {
   children: React.ReactNode; //allows you to nest other components inside this component(AppPage)
 };
 
-function AppPage(props: pageProps) {
+export const ContextLayout = (props: pageProps) => {
   const { pathname } = useRouter(); //pathname can be used to selectively set the context
 
   if (pathname.startsWith("/admin")) {
@@ -19,6 +19,6 @@ function AppPage(props: pageProps) {
   }
 
   return <>{props.children}</>;
-}
+};
 
-export default AppPage;
+export default ContextLayout;
