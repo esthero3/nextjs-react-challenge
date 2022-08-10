@@ -1,4 +1,5 @@
-import { ClientsContext } from "../contexts/ClientsContext";
+import { useClientContext } from "../../../contexts/ClientContext";
+import { useClientsContext } from "../../../contexts/ClientsContext";
 import { useContext } from "react";
 import { Client } from "../../../pages/api/types/Client";
 import { useEffect, useState } from "react";
@@ -7,7 +8,8 @@ export const useGetClient = (_id: string) => {
   const [client, setClient] = useState<Client | undefined>();
   const [loading, setLoading] = useState<Boolean>(false);
 
-  const clients = useContext(ClientsContext)?.clients;
+  const clientsContext = useClientsContext()?.clients;
+  const clientContext = useClientContext()?.client;
 
   const fetchClient = async () => {
     console.log("No context to grab from, fetching client");
@@ -22,14 +24,17 @@ export const useGetClient = (_id: string) => {
   };
 
   useEffect(() => {
+    //console.log("called");
     /*If there are no clients in the context, then perform a fetch to get the data needed */
-    if (!clients) {
+    if (!clientsContext && !clientContext) {
       setLoading(true);
       fetchClient();
-    } else {
-      setClient(clients.find((client) => client._id === _id));
+    } else if (clientContext) {
+      setClient(clientContext);
+    } else if (clientsContext) {
+      setClient(clientsContext.find((client) => client._id === _id));
     }
-  }, []);
+  }, [_id]);
 
   return { loading, client, fetchClient };
 };
