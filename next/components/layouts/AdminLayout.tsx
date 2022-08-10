@@ -1,6 +1,6 @@
 import React from "react";
-import { ClientsContext } from "../_pages/Admin/contexts/ClientsContext";
-import { useGetClients } from "../_pages/Admin/hooks/useGetClients";
+import { ClientsContext } from "../../contexts/ClientsContext";
+import { useGetClients } from "../../_pages/Admin/hooks/useGetClients";
 
 type pageProps = {
   children: React.ReactNode; //allows you to nest other components inside this(AppPage)
