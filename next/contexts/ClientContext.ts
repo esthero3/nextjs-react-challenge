@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { Client } from "../../../pages/api/types/Client";
+import { Client } from "../pages/api/types/Client";
 
 interface ClientContextType {
   client: Client;

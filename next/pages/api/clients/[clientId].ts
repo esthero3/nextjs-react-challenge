@@ -7,6 +7,7 @@ export default function (
   res: NextApiResponse<Client | undefined>
 ) {
   const { clientId } = req.query;
+  console.log(`client with id ${clientId}'s data requested`);
   const client = clientsData.find((client: Client) => client._id === clientId);
 
   res.status(200).json(client);

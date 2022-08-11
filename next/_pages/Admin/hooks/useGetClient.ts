@@ -3,6 +3,7 @@ import { useClientsContext } from "../../../contexts/ClientsContext";
 import { useContext } from "react";
 import { Client } from "../../../pages/api/types/Client";
 import { useEffect, useState } from "react";
+import useSWR, { Key, Fetcher } from "swr";
 
 export const useGetClient = (_id: string) => {
   const [client, setClient] = useState<Client | undefined>();
@@ -37,4 +38,24 @@ export const useGetClient = (_id: string) => {
   }, [_id]);
 
   return { loading, client, fetchClient };
+};
+
+export const useGetClientSWR = (_id: string) => {
+  //const { clients, error } = useGetClientsSWR();
+  //console.log(_id);
+
+  // const client = clients
+  //   ? clients.find((client) => client._id === _id)
+  //   : undefined;
+
+  const fetcher: Fetcher<Client, string> = async (url: string) => {
+    const rawData = await fetch(url);
+    const data = await rawData.json();
+
+    return data;
+  };
+
+  const { data: client, error } = useSWR(`/api/clients/${_id}`, fetcher);
+
+  return { client, error };
 };

@@ -1,6 +1,9 @@
 import React from "react";
 import { ProgressBar } from "./ProgressBar";
-import { useGetClient } from "../_pages/Admin/hooks/useGetClient";
+import {
+  useGetClient,
+  useGetClientSWR,
+} from "../_pages/Admin/hooks/useGetClient";
 import { useClientContext } from "../contexts/ClientContext";
 
 interface CardProps {
@@ -8,13 +11,14 @@ interface CardProps {
 }
 
 export const ClientCard = (props: CardProps) => {
-  const { loading, client } = useGetClient(props._id);
+  // const { loading, client } = useGetClient(props._id);
+  const { client, error } = useGetClientSWR(props._id);
 
-  if (loading) {
+  if (!client) {
     return <div className="card-container">Loading...</div>;
   }
 
-  if (!client) {
+  if (error) {
     return <div className="card-container">Error: Client ID not found</div>;
   }
 

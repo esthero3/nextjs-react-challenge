@@ -5,7 +5,7 @@ export const clientsData: Client[] = [
     documentRef: "62e2c088074ae1c859d86c42",
     emailAddress: "rheba@gmail.com",
     firstName: "Rheba",
-    lastName: "Sherwood",
+    lastName: "Sherwooodd",
     meetingDate: "Aug 25th, 2022",
     phoneNumber: { cell: "872477751" },
     progress: 55,
@@ -28,7 +28,7 @@ export const clientsData: Client[] = [
     lastName: "Chen",
     meetingDate: "Aug 12th, 2022",
     phoneNumber: { cell: "8123477751" },
-    progress: 66,
+    progress: 67,
     _id: "3",
   },
   {
@@ -38,7 +38,7 @@ export const clientsData: Client[] = [
     lastName: "Sherwood",
     meetingDate: "Aug 30th, 2022",
     phoneNumber: { cell: "116477751" },
-    progress: 22,
+    progress: 23,
     _id: "4",
   },
 ];

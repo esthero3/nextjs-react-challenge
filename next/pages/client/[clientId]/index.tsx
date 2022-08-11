@@ -1,6 +1,16 @@
 import React from "react";
-import { ClientCardUsingContext } from "../../../components/ClientCard";
+import { useRouter } from "next/router";
+import {
+  ClientCardUsingContext,
+  ClientCard,
+} from "../../../components/ClientCard";
 
 export default function () {
-  return <ClientCardUsingContext />;
+  const { isReady, query } = useRouter();
+  if (!isReady) return <p>Loading</p>;
+
+  let { clientId } = query;
+  clientId = clientId as string;
+
+  return <ClientCard _id={clientId} />;
 }

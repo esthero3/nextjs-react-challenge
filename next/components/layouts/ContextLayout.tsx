@@ -10,13 +10,13 @@ type pageProps = {
 export const ContextLayout = (props: pageProps) => {
   const { pathname } = useRouter(); //pathname can be used to selectively set the context
 
-  if (pathname.startsWith("/admin")) {
-    return <AdminLayout>{props.children}</AdminLayout>;
-  }
+  // if (pathname.startsWith("/admin")) {
+  //   return <AdminLayout>{props.children}</AdminLayout>;
+  // }
 
-  if (pathname.startsWith("/client/")) {
-    return <ClientLayout>{props.children}</ClientLayout>;
-  }
+  // if (pathname.startsWith("/client/")) {
+  //   return <ClientLayout>{props.children}</ClientLayout>;
+  // }
 
   return <>{props.children}</>;
 };

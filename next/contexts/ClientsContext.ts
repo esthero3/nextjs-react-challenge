@@ -3,7 +3,7 @@ import { Client } from "../pages/api/types/Client";
 
 interface ClientsContextType {
   clients: Client[];
-  setClients: (clients: Client[]) => void;
+  setClients?: (clients: Client[]) => void;
   refetchClients?: () => void;
 }
 
